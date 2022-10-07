@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_medical_crud/ui/input_decotarion.dart';
 import 'package:flutter_medical_crud/widgets/widgets.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -33,6 +34,7 @@ class LoginScreen extends StatelessWidget {
                     shape: MaterialStateProperty.all(const StadiumBorder())),
                 child: const Text('Crear una nueva cuenta',
                     style: TextStyle(fontSize: 18, color: Colors.black87))),
+            const SizedBox(height: 50),
           ],
         ),
       )),
@@ -52,17 +54,10 @@ class _LoginForm extends StatelessWidget {
           TextFormField(
             autocorrect: false,
             keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.lock),
-              labelText: "Usuario",
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.deepPurple),
-              ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.deepPurple, width: 2),
-              ),
-              // hintText: 'Usuario',
-              labelStyle: TextStyle(color: Colors.grey),
+            decoration: InputDecorations.authInputDecoration(
+              hintText: 'jhon.doe',
+              labelText: 'Usuario',
+              prefixIcon: Icons.account_circle_outlined,
             ),
           ),
           const SizedBox(height: 30),
@@ -70,12 +65,35 @@ class _LoginForm extends StatelessWidget {
             autocorrect: false,
             obscureText: true,
             keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.lock_outline),
-              labelText: "Password",
+            decoration: InputDecorations.authInputDecoration(
+              hintText: '*****',
+              labelText: 'Contraseña',
+              prefixIcon: Icons.lock_outline,
             ),
           ),
           const SizedBox(height: 30),
+          MaterialButton(
+            onPressed: () {},
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            disabledColor: Colors.grey,
+            elevation: 0,
+            // color: Colors.deepPurple,
+            child: Container(
+              width: double.infinity,
+              height: 55,
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(7)),
+                  gradient: LinearGradient(
+                      colors: [Colors.deepPurple, Colors.purple])),
+              child: const Center(
+                  child: Text(
+                'Ingresar',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              )),
+            ),
+          ),
+          const SizedBox(height: 20),
         ]),
       ),
     );
