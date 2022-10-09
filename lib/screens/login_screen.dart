@@ -135,7 +135,12 @@ class _LoginForm extends StatelessWidget {
 
                   loginForm.isLoading = true;
 
-                  // Navigator.pushReplacementNamed(context, 'home');
+                  await Future.delayed(const Duration(seconds: 2));
+
+                  //TOD: Validar Usuario Backend
+                  loginForm.isLoading = false;
+
+                  Navigator.pushReplacementNamed(context, 'home');
                 },
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
