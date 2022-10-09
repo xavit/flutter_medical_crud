@@ -83,6 +83,12 @@ class _LoginForm extends StatelessWidget {
           obscureText: loginForm.showPassword,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
+            enabledBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.deepPurple),
+            ),
+            focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.deepPurple, width: 2),
+            ),
             hintText: '*********',
             labelText: 'Contraseña',
             labelStyle: const TextStyle(color: Colors.deepPurple),
@@ -90,10 +96,6 @@ class _LoginForm extends StatelessWidget {
               Icons.lock_outline,
               color: Colors.deepPurple,
             ),
-            // suffixIconConstraints: const BoxConstraints(
-            //   minWidth: 2,
-            //   minHeight: 2,
-            // ),
             suffixIcon: InkWell(
               child: Icon(
                 loginForm.isPasswordVisible
