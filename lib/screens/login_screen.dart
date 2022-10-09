@@ -4,6 +4,8 @@ import 'package:flutter_medical_crud/ui/input_decotarion.dart';
 import 'package:flutter_medical_crud/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 
+import '../services/services.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -131,16 +133,24 @@ class _LoginForm extends StatelessWidget {
               : () async {
                   FocusScope.of(context)
                       .unfocus(); // oculta el teclado en el dispositivo
+                  final atuhService = Provider.of<AuthService>(context,
+                      listen:
+                          false); // Listen: false, important to exclude this parameter otherwise the code crashes
+
                   if (!loginForm.isValidForm()) return;
 
                   loginForm.isLoading = true;
 
-                  await Future.delayed(const Duration(seconds: 2));
+                  final String errorMessage = await atuhService.login(
+                      loginForm.email.trim(), loginForm.password.trim());
 
-                  //TOD: Validar Usuario Backend
+                  if (errorMessage.isNotEmpty) {
+                    Navigator.pushReplacementNamed(context, 'home');
+                  } else {
+                    print(errorMessage);
+                  }
+
                   loginForm.isLoading = false;
-
-                  Navigator.pushReplacementNamed(context, 'home');
                 },
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
