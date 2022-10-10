@@ -30,10 +30,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      initialRoute: 'login',
+      initialRoute: 'check',
       routes: {
-        'login': (_) => const LoginScreen(),
+        'check': (_) => const CheckAuthScreen(),
         'home': (_) => const HomeScreen(),
+        'login': (_) => const LoginScreen(),
       },
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.grey[300],

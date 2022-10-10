@@ -38,7 +38,18 @@ class AuthService extends ChangeNotifier {
   }
 
   Future logout() async {
-    await storage.delete(key: "token");
+    await storage.delete(key: 'token');
     return null;
+  }
+
+  Future<bool> isLoggedIn() async {
+    final token = await storage.read(key: "token");
+    if (token != null) {
+      print("[AuthService] Token Exit");
+      return true;
+    } else {
+      print("[AuthService] Token missing, login required");
+      return false;
+    }
   }
 }
