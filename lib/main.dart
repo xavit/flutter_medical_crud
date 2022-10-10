@@ -16,6 +16,9 @@ class AppState extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => AuthService(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => SpecialtiesService(),
+        ),
       ],
       child: const MyApp(),
     );

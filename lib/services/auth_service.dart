@@ -5,7 +5,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService extends ChangeNotifier {
-  final String _baseUrl = 'https://dev-ave.online';
   final String _baseUrlLogin =
       'https://xyfjdr4uvj.execute-api.us-east-1.amazonaws.com';
 
