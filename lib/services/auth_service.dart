@@ -33,7 +33,7 @@ class AuthService extends ChangeNotifier {
       await storage.write(key: 'token', value: "${decodeData['token']}");
       return '';
     } else {
-      return decodeData['error']['message'];
+      return "${decodeData['error']}";
     }
   }
 
