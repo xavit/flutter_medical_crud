@@ -81,6 +81,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 20,
                   ),
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.purple,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 50, vertical: 20),
+                        textStyle: const TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.bold)),
                     onPressed: () async {
                       // Save new item
                       if (itemKey == null) {
@@ -105,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       Navigator.of(context).pop(); // Close the bottom sheet
                     },
-                    child: Text(itemKey == null ? 'Create New' : 'Update'),
+                    child: Text(itemKey == null ? 'Crear Nuevo' : 'Actualizar'),
                   ),
                   const SizedBox(
                     height: 15,
@@ -164,7 +170,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         // Edit button
                         IconButton(
-                          icon: const Icon(Icons.edit),
+                          icon: const Icon(
+                            Icons.edit,
+                            size: 30,
+                            color: Colors.deepPurple,
+                          ),
                           onPressed: () => _showForm(
                             context,
                             currentItem['id'],
