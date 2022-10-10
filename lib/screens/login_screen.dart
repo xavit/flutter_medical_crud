@@ -144,7 +144,7 @@ class _LoginForm extends StatelessWidget {
                   final String errorMessage = await atuhService.login(
                       loginForm.email.trim(), loginForm.password.trim());
 
-                  if (errorMessage.isNotEmpty) {
+                  if (errorMessage == '') {
                     Navigator.pushReplacementNamed(context, 'home');
                   } else {
                     print(errorMessage);
